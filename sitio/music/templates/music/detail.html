@@ -1,0 +1,15 @@
+{% if album %}
+    <h2>{{ album.album_title }}</h2>
+    <img src="{{ album.album_logo }}" height="200">
+    <h3>By: {{ album.artist }}</h3>
+    <h3>Genre: {{ album.genre }}</h3>
+
+    <h3>Tracklist:</h3>
+    <ol>
+        {% for song in album.song_set.all %}
+            <li>{{ song.song_title }} ({{ song.file_type }})</li>
+        {% endfor %}
+    </ol>
+{% else %}
+    <h3>No album to display</h3>
+{% endif %}
